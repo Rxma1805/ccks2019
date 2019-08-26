@@ -257,3 +257,11 @@ def test(test_data):
 
 evaluator = Evaluate()
 train_D = data_generator(train_data)
+
+train_model.fit_generator(train_D.__iter__(),
+                              steps_per_epoch=len(train_D),
+                              epochs=5,
+                              callbacks=[evaluator]
+                             )
+# train_model.load_weights('best_model.weights')
+# test(test_data)
